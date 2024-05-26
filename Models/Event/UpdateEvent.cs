@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Models.Event
 {
-    internal class UpdateEvent
+    public class UpdateEvent
     {
         public string Name { get; set; }
         public string Description { get; set; }
