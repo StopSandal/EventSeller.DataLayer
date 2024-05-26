@@ -14,11 +14,4 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="Models\HallSector\" />
-	  <Folder Include="Models\TicketSeat\" />
-	  <Folder Include="Models\PlaceHall\" />
-	  <Folder Include="Models\PlaceAddress\" />
-	  <Folder Include="Models\Ticket\" />
-	</ItemGroup>
 </Project>
