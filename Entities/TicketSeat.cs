@@ -1,6 +1,6 @@
 ﻿namespace DataLayer.Model
 {
-    public class TicketSeat : IEntity
+    public class TicketSeat
     {
         public long ID { get; set; }
         public string PlaceName { get; set; }

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataLayer.Model
 {
-    public class Ticket : IEntity
+    public class Ticket
     {
         public long ID { get; set; }
         public string? Name { get; set; }

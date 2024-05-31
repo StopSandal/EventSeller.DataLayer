@@ -1,6 +1,6 @@
 ﻿namespace DataLayer.Model
 {
-    public class PlaceAddress : IEntity
+    public class PlaceAddress
     {
         public long ID { get; set; }
         public string PlaceName { get; set; }
