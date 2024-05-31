@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Models.PlaceAddress
 {
-    public class CreatePlaceAddress
+    public class AddPlaceAddressDto
     {
         [Required]
         public string PlaceName { get; set; }

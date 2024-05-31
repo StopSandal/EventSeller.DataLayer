@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Models.HallSector
 {
-    public class CreateHallSector
+    public class AddHallSectorDto
     {
         [Required]
         public string SectorName { get; set; }
