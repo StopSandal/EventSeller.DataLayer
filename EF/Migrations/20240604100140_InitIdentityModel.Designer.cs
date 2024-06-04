@@ -4,6 +4,7 @@ using DataLayer.Model.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventSeller.Migrations
 {
     [DbContext(typeof(SellerContext))]
-    partial class SellerContextModelSnapshot : ModelSnapshot
+    [Migration("20240604100140_InitIdentityModel")]
+    partial class InitIdentityModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,7 +49,7 @@ namespace EventSeller.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Events", (string)null);
+                    b.ToTable("Events");
                 });
 
             modelBuilder.Entity("DataLayer.Model.HallSector", b =>
@@ -71,7 +74,7 @@ namespace EventSeller.Migrations
                     b.HasIndex("SectorName", "PlaceHallID")
                         .IsUnique();
 
-                    b.ToTable("HallSectors", (string)null);
+                    b.ToTable("HallSectors");
                 });
 
             modelBuilder.Entity("DataLayer.Model.PlaceAddress", b =>
@@ -92,7 +95,7 @@ namespace EventSeller.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("PlaceAddresses", (string)null);
+                    b.ToTable("PlaceAddresses");
                 });
 
             modelBuilder.Entity("DataLayer.Model.PlaceHall", b =>
@@ -117,7 +120,7 @@ namespace EventSeller.Migrations
                     b.HasIndex("HallName", "PlaceAddressID")
                         .IsUnique();
 
-                    b.ToTable("PlaceHalls", (string)null);
+                    b.ToTable("PlaceHalls");
                 });
 
             modelBuilder.Entity("DataLayer.Model.Ticket", b =>
@@ -158,7 +161,7 @@ namespace EventSeller.Migrations
 
                     b.HasIndex("SeatID");
 
-                    b.ToTable("Tickets", (string)null);
+                    b.ToTable("Tickets");
                 });
 
             modelBuilder.Entity("DataLayer.Model.TicketSeat", b =>
@@ -190,7 +193,7 @@ namespace EventSeller.Migrations
 
                     b.HasIndex("HallSectorID");
 
-                    b.ToTable("Seats", (string)null);
+                    b.ToTable("Seats");
                 });
 
             modelBuilder.Entity("EventSeller.DataLayer.Entities.User", b =>

@@ -1,9 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EventSeller.DataLayer.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace DataLayer.Model.EF
 {
-    public class SellerContext : DbContext
+    public class SellerContext : IdentityDbContext<User>
     {
         DbSet<Ticket> Tickets { get; set; }
         DbSet<Event> Events { get; set; }
@@ -14,6 +17,9 @@ namespace DataLayer.Model.EF
         public SellerContext(DbContextOptions<SellerContext> options) : base(options)
         {
         }
-
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
     }
 }
