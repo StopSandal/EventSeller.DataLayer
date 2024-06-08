@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Models.TicketSeat
 {
-    public class UpdateTicketSeat
+    public class EditTicketSeatDto
     {
-        public string PlaceName { get; set; }
-        public string PlaceType { get; set; }
+        public string? PlaceName { get; set; }
+        public string? PlaceType { get; set; }
         public int? PlaceRow { get; set; }
         public int? PlaceSeat { get; set; }
         public long HallSectorID { get; set; }

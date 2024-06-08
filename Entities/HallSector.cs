@@ -3,7 +3,7 @@
 namespace DataLayer.Model
 {
     [Index(nameof(SectorName), nameof(PlaceHallID), IsUnique = true)]
-    public class HallSector : IEntity
+    public class HallSector
     {
         public long ID { get; set; }
         public string SectorName { get; set; }

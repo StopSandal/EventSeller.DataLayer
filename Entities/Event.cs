@@ -1,6 +1,6 @@
 ﻿namespace DataLayer.Model
 {
-    public class Event : IEntity
+    public class Event
     {
         public long ID { get; set; }
         public string Name { get; set; }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Models.Ticket
 {
-    public class UpdateTicket
+    public class EditTicketDto
     {
         public string? Name { get; set; }
         public string? Description { get; set; }

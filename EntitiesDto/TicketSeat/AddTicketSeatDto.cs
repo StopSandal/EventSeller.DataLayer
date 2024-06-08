@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Models.TicketSeat
 {
-    public class CreateTicketSeat
+    public class AddTicketSeatDto
     {
         [Required]
         public string PlaceName { get; set; }

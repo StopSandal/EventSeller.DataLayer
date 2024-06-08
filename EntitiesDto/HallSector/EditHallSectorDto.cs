@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Models.HallSector
 {
-    public class UpdateHallSector
+    public class EditHallSectorDto
     {
-        public string SectorName { get; set; }
+        public string? SectorName { get; set; }
         public long PlaceHallID { get; set; }
     }
 }
