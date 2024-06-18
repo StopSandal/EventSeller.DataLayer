@@ -6,15 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EventSeller.DataLayer.EntitiesViewModel
+namespace EventSeller.DataLayer.EntitiesDto.User
 {
-    public class LoginUserVM
+    public class LoginUserDTO
     {
         [Required]
-        [DisplayName("User name")]
         public string UserName { get; set; }
         [Required]
-        [DisplayName("Password")]
         public string Password { get; set; }
         [EmailAddress]
         public string? Email { get; set; }
