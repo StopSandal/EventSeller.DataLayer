@@ -4,6 +4,7 @@ using DataLayer.Model.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventSeller.Migrations
 {
     [DbContext(typeof(SellerContext))]
-    partial class SellerContextModelSnapshot : ModelSnapshot
+    [Migration("20240625141407_AddBookingPersentageFieldToEventType")]
+    partial class AddBookingPersentageFieldToEventType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,9 +40,6 @@ namespace EventSeller.Migrations
                     b.Property<DateTime?>("EndEventDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("EventTypeID")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -48,8 +48,6 @@ namespace EventSeller.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("EventTypeID");
 
                     b.ToTable("Events");
                 });
@@ -215,7 +213,7 @@ namespace EventSeller.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<decimal>("BookingFeePercentage")
-                        .HasColumnType("decimal(18, 2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("MinutesForMoneyReturn")
                         .HasColumnType("int");
@@ -433,17 +431,6 @@ namespace EventSeller.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("DataLayer.Model.Event", b =>
-                {
-                    b.HasOne("EventSeller.DataLayer.Entities.EventType", "EventType")
-                        .WithMany("Event")
-                        .HasForeignKey("EventTypeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("EventType");
-                });
-
             modelBuilder.Entity("DataLayer.Model.HallSector", b =>
                 {
                     b.HasOne("DataLayer.Model.PlaceHall", "PlaceHall")
@@ -564,11 +551,6 @@ namespace EventSeller.Migrations
             modelBuilder.Entity("DataLayer.Model.PlaceHall", b =>
                 {
                     b.Navigation("HallSectors");
-                });
-
-            modelBuilder.Entity("EventSeller.DataLayer.Entities.EventType", b =>
-                {
-                    b.Navigation("Event");
                 });
 #pragma warning restore 612, 618
         }

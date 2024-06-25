@@ -12,5 +12,6 @@ namespace DataLayer.Models.Event
         public string? Description { get; set; }
         public DateTime? StartEventDateTime { get; set; }
         public DateTime? EndEventDateTime { get; set; }
+        public long? EventTypeID { get; set; }
     }
 }

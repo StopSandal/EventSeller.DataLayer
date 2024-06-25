@@ -17,5 +17,7 @@ namespace DataLayer.Models.Event
         public DateTime StartEventDateTime { get; set; }
         [Required]
         public DateTime EndEventDateTime { get; set; }
+        [Required]
+        public long EventTypeID { get; set; }
     }
 }
