@@ -11,6 +11,7 @@ namespace DataLayer.Model
         public string? Description { get; set; }
         [Column(TypeName = "decimal(18, 2)")]
         public decimal Price { get; set; }
+        public string CurrencyType { get; set; }
         public bool isSold { get; set; } = false;
         public DateTime? BookedUntil { get; set; }
         public DateTime? TicketStartDateTime { get; set; }

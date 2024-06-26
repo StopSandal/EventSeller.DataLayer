@@ -13,8 +13,9 @@ namespace DataLayer.Models.Ticket
         public string? Name { get; set; }
         public string? Description { get; set; }
         [Range(0,double.MaxValue)]
-        public decimal Price { get; set; }
-        public bool isSold { get; set; } = false;
+        public decimal? Price { get; set; }
+        public string? CurrencyType { get; set; }
+        public bool? isSold { get; set; } = false;
         public DateTime? TicketStartDateTime { get; set; }
         public DateTime? TicketEndDateTime { get; set; }
     }

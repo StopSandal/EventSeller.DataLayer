@@ -17,6 +17,8 @@ namespace DataLayer.Models.Ticket
         [Range(0, double.MaxValue)]
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
+        [Required]
+        public string CurrencyType { get; set; }
         public DateTime? TicketStartDateTime { get; set; }
         public DateTime? TicketEndDateTime { get; set; }
         public long? HallID { get; set; }
