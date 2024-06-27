@@ -18,6 +18,8 @@ namespace EventSeller.DataLayer.Entities
         public Ticket Ticket { get; set; }
         [Column(TypeName = "decimal(18, 2)")]
         public decimal TransactionAmount { get; set; }
+        [Column(TypeName = "decimal(18, 2)")]
+        public decimal UnreturnableFee { get; set; }
         public string CurrencyType { get; set; }
         public DateTime Date { get; set; } = DateTime.UtcNow;
         public long TransactionId { get; set; }
