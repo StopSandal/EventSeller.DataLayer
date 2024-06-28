@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using EventSeller.DataLayer.Enums;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data;
 
@@ -11,7 +12,7 @@ namespace DataLayer.Model
         public string? Description { get; set; }
         [Column(TypeName = "decimal(18, 2)")]
         public decimal Price { get; set; }
-        public string CurrencyType { get; set; }
+        public string CurrencyType { get; set; } = CurrencyTypes.USD.ToString();
         public bool isSold { get; set; } = false;
         public DateTime? BookedUntil { get; set; }
         public DateTime? TicketStartDateTime { get; set; }

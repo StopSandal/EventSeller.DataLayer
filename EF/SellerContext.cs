@@ -27,7 +27,6 @@ namespace DataLayer.Model.EF
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseLazyLoadingProxies();
         }
     }
 }
