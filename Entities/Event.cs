@@ -8,7 +8,7 @@ namespace DataLayer.Model
         public string Name { get; set; }
         public string Description { get; set; }
         public long EventTypeID { get; set; }
-        public EventType EventType { get; set; }
+        public virtual EventType EventType { get; set; }
         public DateTime? StartEventDateTime { get; set; }
         public DateTime? EndEventDateTime { get; set; }
     }

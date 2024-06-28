@@ -13,9 +13,9 @@ namespace EventSeller.DataLayer.Entities
     {
         public long ID { get; set; }
         public string userId { get; set; }
-        public User User { get; set; }
+        public virtual User User { get; set; }
         public long TicketID { get; set; }
-        public Ticket Ticket { get; set; }
+        public virtual Ticket Ticket { get; set; }
         [Column(TypeName = "decimal(18, 2)")]
         public decimal TransactionAmount { get; set; }
         [Column(TypeName = "decimal(18, 2)")]

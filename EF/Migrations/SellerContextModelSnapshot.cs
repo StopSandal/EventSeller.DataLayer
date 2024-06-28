@@ -51,7 +51,7 @@ namespace EventSeller.Migrations
 
                     b.HasIndex("EventTypeID");
 
-                    b.ToTable("Events");
+                    b.ToTable("Events", (string)null);
                 });
 
             modelBuilder.Entity("DataLayer.Model.HallSector", b =>
@@ -76,7 +76,7 @@ namespace EventSeller.Migrations
                     b.HasIndex("SectorName", "PlaceHallID")
                         .IsUnique();
 
-                    b.ToTable("HallSectors");
+                    b.ToTable("HallSectors", (string)null);
                 });
 
             modelBuilder.Entity("DataLayer.Model.PlaceAddress", b =>
@@ -97,7 +97,7 @@ namespace EventSeller.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("PlaceAddresses");
+                    b.ToTable("PlaceAddresses", (string)null);
                 });
 
             modelBuilder.Entity("DataLayer.Model.PlaceHall", b =>
@@ -122,7 +122,7 @@ namespace EventSeller.Migrations
                     b.HasIndex("HallName", "PlaceAddressID")
                         .IsUnique();
 
-                    b.ToTable("PlaceHalls");
+                    b.ToTable("PlaceHalls", (string)null);
                 });
 
             modelBuilder.Entity("DataLayer.Model.Ticket", b =>
@@ -175,7 +175,7 @@ namespace EventSeller.Migrations
 
                     b.HasIndex("SeatID");
 
-                    b.ToTable("Tickets");
+                    b.ToTable("Tickets", (string)null);
                 });
 
             modelBuilder.Entity("DataLayer.Model.TicketSeat", b =>
@@ -207,7 +207,7 @@ namespace EventSeller.Migrations
 
                     b.HasIndex("HallSectorID");
 
-                    b.ToTable("Seats");
+                    b.ToTable("Seats", (string)null);
                 });
 
             modelBuilder.Entity("EventSeller.DataLayer.Entities.EventType", b =>
@@ -230,7 +230,7 @@ namespace EventSeller.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EventTypes");
+                    b.ToTable("EventTypes", (string)null);
                 });
 
             modelBuilder.Entity("EventSeller.DataLayer.Entities.TicketTransaction", b =>
@@ -273,7 +273,7 @@ namespace EventSeller.Migrations
 
                     b.HasIndex("userId");
 
-                    b.ToTable("TicketTransactions");
+                    b.ToTable("TicketTransactions", (string)null);
                 });
 
             modelBuilder.Entity("EventSeller.DataLayer.Entities.User", b =>
