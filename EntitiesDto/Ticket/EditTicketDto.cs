@@ -18,5 +18,8 @@ namespace DataLayer.Models.Ticket
         public bool? isSold { get; set; } = false;
         public DateTime? TicketStartDateTime { get; set; }
         public DateTime? TicketEndDateTime { get; set; }
+        public long? SeatID { get; set; }
+        public long? HallID { get; set; }
+        public long? EventID { get; set; }
     }
 }

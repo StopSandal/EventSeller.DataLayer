@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer.Models.Ticket
+namespace EventSeller.DataLayer.EntitiesDto.Ticket
 {
-    public class AddTicketDto
+    public class AddTicketsForHallToFillDTO
     {
         [Required]
         public string? Name { get; set; }
@@ -21,9 +20,13 @@ namespace DataLayer.Models.Ticket
         public string CurrencyType { get; set; }
         public DateTime? TicketStartDateTime { get; set; }
         public DateTime? TicketEndDateTime { get; set; }
-        public long? HallID { get; set; }
-        public long? SeatID { get; set; }
+        [Required]
+        public long HallID { get; set; }
         [Required]
         public long EventID { get; set; }
+        [Required]
+        public int SeatsStartRow { get; set; }
+        [Required]
+        public int SeatsEndRow { get; set; }
     }
 }
