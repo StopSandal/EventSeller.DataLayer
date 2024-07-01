@@ -15,6 +15,7 @@ namespace EventSeller.DataLayer.Entities
         public int MinutesForMoneyReturn { get; set; }
         [Column(TypeName = "decimal(18, 2)")]
         public decimal BookingFeePercentage { get; set; }
+        public int? MinimalSeatRowForEvent { get; set; } = null;
         public virtual ICollection<Event> Event { get; set; }
     }
 }
