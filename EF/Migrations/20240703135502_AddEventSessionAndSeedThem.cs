@@ -11,9 +11,71 @@ namespace EventSeller.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+            name: "EventSessions",
+            columns: table => new
+            {
+                Id = table.Column<long>(type: "bigint", nullable: false)
+                    .Annotation("SqlServer:Identity", "1, 1"),
+                StartSessionDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                EndSessionDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                EventID = table.Column<long>(type: "bigint", nullable: false),
+                HallID = table.Column<long>(type: "bigint", nullable: false)
+            },
+            constraints: table =>
+            {
+                table.PrimaryKey("PK_EventSessions", x => x.Id);
+                table.ForeignKey(
+                    name: "FK_EventSessions_Events_EventID",
+                    column: x => x.EventID,
+                    principalTable: "Events",
+                    principalColumn: "ID",
+                    onDelete: ReferentialAction.Cascade);
+                table.ForeignKey(
+                    name: "FK_EventSessions_PlaceHalls_HallID",
+                    column: x => x.HallID,
+                    principalTable: "PlaceHalls",
+                    principalColumn: "ID",
+                    onDelete: ReferentialAction.Cascade);
+            });
+
+            var startSessionId = 1;
+
+            migrationBuilder.InsertData(
+                table: "EventSessions",
+                columns: new[] { "Id", "StartSessionDateTime", "EndSessionDateTime", "EventID", "HallID" },
+                values: new object[,]
+                {
+                   { startSessionId, new DateTime(2023, 6, 1), new DateTime(2023, 6, 2), 1,1 },
+                   { startSessionId + 1, new DateTime(2024, 9, 3), new DateTime(2024, 9, 4), 2,2 },
+                   { startSessionId + 2, new DateTime(2024, 9, 5), new DateTime(2024, 9, 6), 3,3 },
+                   { startSessionId + 3, new DateTime(2025, 6, 9), new DateTime(2025, 6, 10), 4, 1 },
+                   { startSessionId + 4, new DateTime(2025, 7, 9), new DateTime(2025, 8, 10), 5, 3 },
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EventSessions_EventID",
+                table: "EventSessions",
+                column: "EventID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EventSessions_HallID",
+                table: "EventSessions",
+                column: "HallID");
+
             migrationBuilder.DropForeignKey(
                 name: "FK_Tickets_Events_EventID",
                 table: "Tickets");
+
+            migrationBuilder.RenameColumn(
+                name: "EventID",
+                table: "Tickets",
+                newName: "EventSessionID");
+
+            migrationBuilder.RenameIndex(
+                name: "IX_Tickets_EventID",
+                table: "Tickets",
+                newName: "IX_Tickets_EventSessionID");
 
             migrationBuilder.DropForeignKey(
                 name: "FK_Tickets_PlaceHalls_HallID",
@@ -34,54 +96,6 @@ namespace EventSeller.Migrations
             migrationBuilder.DropColumn(
                 name: "TicketStartDateTime",
                 table: "Tickets");
-
-            migrationBuilder.RenameColumn(
-                name: "EventID",
-                table: "Tickets",
-                newName: "EventSessionID");
-
-            migrationBuilder.RenameIndex(
-                name: "IX_Tickets_EventID",
-                table: "Tickets",
-                newName: "IX_Tickets_EventSessionID");
-
-            migrationBuilder.CreateTable(
-                name: "EventSessions",
-                columns: table => new
-                {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    StartSessionDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EndSessionDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EventID = table.Column<long>(type: "bigint", nullable: false),
-                    HallID = table.Column<long>(type: "bigint", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_EventSessions", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_EventSessions_Events_EventID",
-                        column: x => x.EventID,
-                        principalTable: "Events",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_EventSessions_PlaceHalls_HallID",
-                        column: x => x.HallID,
-                        principalTable: "PlaceHalls",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_EventSessions_EventID",
-                table: "EventSessions",
-                column: "EventID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_EventSessions_HallID",
-                table: "EventSessions",
-                column: "HallID");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Tickets_EventSessions_EventSessionID",
