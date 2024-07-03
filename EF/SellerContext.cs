@@ -9,6 +9,7 @@ namespace DataLayer.Model.EF
     public class SellerContext : IdentityDbContext<User>
     {
         DbSet<EventType> EventTypes{ get; set;}
+        DbSet<EventSession> EventSessions{ get; set;}
         DbSet<TicketTransaction> TicketTransactions{ get; set;}
         DbSet<Ticket> Tickets { get; set; }
         DbSet<Event> Events { get; set; }

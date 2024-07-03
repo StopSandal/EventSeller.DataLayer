@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EventSeller.DataLayer.EntitiesDto.EventSession;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -18,12 +19,9 @@ namespace EventSeller.DataLayer.EntitiesDto.Ticket
         public decimal Price { get; set; }
         [Required]
         public string CurrencyType { get; set; }
-        public DateTime? TicketStartDateTime { get; set; }
-        public DateTime? TicketEndDateTime { get; set; }
+        public AddEventSessionDTO addEventSessionDTO { get; set; }
         [Required]
         public long HallID { get; set; }
-        [Required]
-        public long EventID { get; set; }
         [Required]
         public int TicketsCount { get; set; }
     }

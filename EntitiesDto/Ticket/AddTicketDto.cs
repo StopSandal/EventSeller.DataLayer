@@ -19,11 +19,8 @@ namespace DataLayer.Models.Ticket
         public decimal Price { get; set; }
         [Required]
         public string CurrencyType { get; set; }
-        public DateTime? TicketStartDateTime { get; set; }
-        public DateTime? TicketEndDateTime { get; set; }
-        public long? HallID { get; set; }
         public long? SeatID { get; set; }
         [Required]
-        public long EventID { get; set; }
+        public long EventSessionId { get; set; }
     }
 }

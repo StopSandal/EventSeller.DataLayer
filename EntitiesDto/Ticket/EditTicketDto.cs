@@ -16,10 +16,7 @@ namespace DataLayer.Models.Ticket
         public decimal? Price { get; set; }
         public string? CurrencyType { get; set; }
         public bool? isSold { get; set; } = false;
-        public DateTime? TicketStartDateTime { get; set; }
-        public DateTime? TicketEndDateTime { get; set; }
         public long? SeatID { get; set; }
-        public long? HallID { get; set; }
-        public long? EventID { get; set; }
+        public long? EventSessionID { get; set; }
     }
 }
