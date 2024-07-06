@@ -10,7 +10,6 @@ namespace EventSeller.DataLayer.EntitiesDto.Statistics
     {
         public decimal Popularity { get; set; }
         public decimal Realization { get; set; }
-        public object StatisticCheckObject { get; set; }
 
     }
 }
