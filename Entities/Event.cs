@@ -1,6 +1,5 @@
-﻿using EventSeller.DataLayer.Entities;
-
-namespace DataLayer.Model
+﻿
+namespace EventSeller.DataLayer.Entities
 {
     public class Event
     {

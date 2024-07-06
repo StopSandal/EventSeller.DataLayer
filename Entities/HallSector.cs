@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace DataLayer.Model
+namespace EventSeller.DataLayer.Entities
 {
     [Index(nameof(SectorName), nameof(PlaceHallID), IsUnique = true)]
     public class HallSector

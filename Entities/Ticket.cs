@@ -1,11 +1,8 @@
-﻿using EventSeller.DataLayer.Entities;
-using EventSeller.DataLayer.Enums;
-using System.ComponentModel.DataAnnotations;
+﻿using EventSeller.DataLayer.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data;
 using System.Text.Json.Serialization;
 
-namespace DataLayer.Model
+namespace EventSeller.DataLayer.Entities
 {
     public class Ticket
     {

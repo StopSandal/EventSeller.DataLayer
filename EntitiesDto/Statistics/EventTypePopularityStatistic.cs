@@ -1,6 +1,4 @@
 ﻿
-using EventSeller.DataLayer.Entities;
-
 namespace EventSeller.DataLayer.EntitiesDto.Statistics
 {
     public class EventTypePopularityStatisticDTO

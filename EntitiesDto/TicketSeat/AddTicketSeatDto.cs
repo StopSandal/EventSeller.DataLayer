@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLayer.Models.TicketSeat
+namespace EventSeller.DataLayer.EntitiesDto.TicketSeat
 {
     public class AddTicketSeatDto
     {

@@ -1,4 +1,4 @@
-﻿namespace DataLayer.Model
+﻿namespace EventSeller.DataLayer.Entities
 {
     public class PlaceAddress
     {
