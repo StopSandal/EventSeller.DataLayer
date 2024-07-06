@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EventSeller.DataLayer.Entities.Ticket
+namespace EventSeller.DataLayer.EntitiesDto.Ticket
 {
     public class AddTicketDto
     {
