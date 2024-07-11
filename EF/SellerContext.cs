@@ -1,16 +1,14 @@
 ﻿using EventSeller.DataLayer.Entities;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
 
-namespace DataLayer.Model.EF
+namespace EventSeller.DataLayer.EF
 {
     public class SellerContext : IdentityDbContext<User>
     {
-        DbSet<EventType> EventTypes{ get; set;}
-        DbSet<EventSession> EventSessions{ get; set;}
-        DbSet<TicketTransaction> TicketTransactions{ get; set;}
+        DbSet<EventType> EventTypes { get; set; }
+        DbSet<EventSession> EventSessions { get; set; }
+        DbSet<TicketTransaction> TicketTransactions { get; set; }
         DbSet<Ticket> Tickets { get; set; }
         DbSet<Event> Events { get; set; }
         DbSet<PlaceAddress> PlaceAddresses { get; set; }

@@ -13,7 +13,7 @@ namespace EventSeller.Migrations
             var startSectorId = 1;
             int placeIndex = 1;
             for (int sector = startSectorId; sector <= 6; sector++)
-            { 
+            {
                 for (int row = 1; row <= 5; row++)
                 {
                     for (int seat = 1; seat <= 2; seat++)

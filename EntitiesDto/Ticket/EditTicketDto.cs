@@ -6,7 +6,7 @@ namespace EventSeller.DataLayer.EntitiesDto.Ticket
     {
         public string? Name { get; set; }
         public string? Description { get; set; }
-        [Range(0,double.MaxValue)]
+        [Range(0, double.MaxValue)]
         public decimal? Price { get; set; }
         public string? CurrencyType { get; set; }
         public bool? isSold { get; set; } = false;

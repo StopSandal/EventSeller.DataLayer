@@ -35,7 +35,7 @@ namespace EventSeller.Migrations
                 table: "EventTypes",
                 type: "int",
                 nullable: true);
-         }
+        }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -22,7 +22,7 @@ namespace EventSeller.Migrations
 
             migrationBuilder.InsertData(
                 table: "EventTypes",
-                columns: new[] { "Id", "Name", "MinutesForMoneyReturn", "BookingFeePercentage"},
+                columns: new[] { "Id", "Name", "MinutesForMoneyReturn", "BookingFeePercentage" },
                 values: events);
         }
 
