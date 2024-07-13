@@ -3,7 +3,7 @@ namespace EventSeller.DataLayer.EntitiesDto.Statistics
 {
     public class EventTypePopularityStatisticDTO
     {
-        public Entities.EventType EventTypeItem { get; set; }
+        public long EventTypeId { get; set; }
         public PopularityStatisticDTO PopularityStatistic { get; set; }
     }
 }
