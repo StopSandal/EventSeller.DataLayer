@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DataLayer.Models.Event
+﻿
+namespace EventSeller.DataLayer.EntitiesDto.Event
 {
     public class EditEventDto
     {
@@ -12,5 +7,6 @@ namespace DataLayer.Models.Event
         public string? Description { get; set; }
         public DateTime? StartEventDateTime { get; set; }
         public DateTime? EndEventDateTime { get; set; }
+        public long? EventTypeID { get; set; }
     }
 }

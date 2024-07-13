@@ -1,9 +1,4 @@
-﻿using DataLayer.Model.EF;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Migrations;
-using System;
-using System.Linq;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EventSeller.Migrations
 {
@@ -13,59 +8,59 @@ namespace EventSeller.Migrations
         {
             migrationBuilder.Sql("DELETE FROM Tickets WHERE ID <= 300");
             migrationBuilder.Sql("DELETE FROM Seats WHERE ID <= 60");
-            migrationBuilder.Sql("DELETE FROM Events WHERE ID <= 5"); 
-            migrationBuilder.Sql("DELETE FROM HallSectors WHERE ID <= 6"); 
-            migrationBuilder.Sql("DELETE FROM PlaceHalls WHERE ID <= 3"); 
-            migrationBuilder.Sql("DELETE FROM PlaceAddresses WHERE ID <= 2"); 
+            migrationBuilder.Sql("DELETE FROM Events WHERE ID <= 5");
+            migrationBuilder.Sql("DELETE FROM HallSectors WHERE ID <= 6");
+            migrationBuilder.Sql("DELETE FROM PlaceHalls WHERE ID <= 3");
+            migrationBuilder.Sql("DELETE FROM PlaceAddresses WHERE ID <= 2");
 
             int startPlaceAddressId = 1;
-                int startPlaceHallId =  1;
-                int startHallSectorId = 1;
-                int startSeatId = 1;
-                int startEventId = 1;
-                int startTicketId = 1;
+            int startPlaceHallId = 1;
+            int startHallSectorId = 1;
+            int startSeatId = 1;
+            int startEventId = 1;
+            int startTicketId = 1;
 
-                migrationBuilder.InsertData(
-                    table: "PlaceAddresses",
-                    columns: new[] { "ID", "PlaceName", "Address" },
-                    values: new object[,]
-                    {
+            migrationBuilder.InsertData(
+                table: "PlaceAddresses",
+                columns: new[] { "ID", "PlaceName", "Address" },
+                values: new object[,]
+                {
                         { startPlaceAddressId, "Stadium 1", "Address 1" },
                         { startPlaceAddressId + 1, "Stadium 2", "Address 2" }
-                    });
+                });
 
-                // Seed halls for Stadium 1
-                migrationBuilder.InsertData(
-                    table: "PlaceHalls",
-                    columns: new[] { "ID", "HallName", "PlaceAddressID" },
-                    values: new object[,]
-                    {
+            // Seed halls for Stadium 1
+            migrationBuilder.InsertData(
+                table: "PlaceHalls",
+                columns: new[] { "ID", "HallName", "PlaceAddressID" },
+                values: new object[,]
+                {
                         { startPlaceHallId, "Hall 1", startPlaceAddressId },
-                    });
+                });
 
-                // Seed halls for Stadium 2
-                migrationBuilder.InsertData(
-                    table: "PlaceHalls",
-                    columns: new[] { "ID", "HallName", "PlaceAddressID" },
-                    values: new object[,]
-                    {
+            // Seed halls for Stadium 2
+            migrationBuilder.InsertData(
+                table: "PlaceHalls",
+                columns: new[] { "ID", "HallName", "PlaceAddressID" },
+                values: new object[,]
+                {
                         { startPlaceHallId + 1, "Hall 1", startPlaceAddressId + 1 },
                         { startPlaceHallId + 2, "Hall 2", startPlaceAddressId + 1 }
-                    });
+                });
 
-                // Seed hall sectors
-                migrationBuilder.InsertData(
-                    table: "HallSectors",
-                    columns: new[] { "ID", "SectorName", "PlaceHallID" },
-                    values: new object[,]
-                    {
+            // Seed hall sectors
+            migrationBuilder.InsertData(
+                table: "HallSectors",
+                columns: new[] { "ID", "SectorName", "PlaceHallID" },
+                values: new object[,]
+                {
                         { startHallSectorId, "Sector 1", startPlaceHallId },
                         { startHallSectorId + 1, "Sector 2", startPlaceHallId },
                         { startHallSectorId + 2, "Sector 1", startPlaceHallId + 1 },
                         { startHallSectorId + 3, "Sector 2", startPlaceHallId + 1 },
                         { startHallSectorId + 4, "Sector 1", startPlaceHallId + 2 },
                         { startHallSectorId + 5, "Sector 2", startPlaceHallId + 2 }
-                    });
+                });
 
             int totalSectors = 6;
             int seatsPerSector = 10;
@@ -115,12 +110,12 @@ namespace EventSeller.Migrations
                     { startEventId + 4, "Event 5", "Description 5", new DateTime(2025, 6, 9), new DateTime(2025, 6, 10) }
                 };
 
-                migrationBuilder.InsertData(
-                    table: "Events",
-                    columns: new[] { "ID", "Name", "Description", "StartEventDateTime", "EndEventDateTime" },
-                    values: events);
+            migrationBuilder.InsertData(
+                table: "Events",
+                columns: new[] { "ID", "Name", "Description", "StartEventDateTime", "EndEventDateTime" },
+                values: events);
 
-                int totalEvents = events.GetLength(0);
+            int totalEvents = events.GetLength(0);
             List<object[]> ticketsList = new List<object[]>();
 
             // Loop through each event

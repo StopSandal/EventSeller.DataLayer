@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DataLayer.Models.PlaceHall
+﻿
+namespace EventSeller.DataLayer.EntitiesDto.PlaceHall
 {
     public class EditPlaceHallDto
     {

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace DataLayer.Models.Ticket
+namespace EventSeller.DataLayer.EntitiesDto.Ticket
 {
     public class AddTicketDto
     {
@@ -17,8 +11,10 @@ namespace DataLayer.Models.Ticket
         [Range(0, double.MaxValue)]
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
-        public bool isSold { get; set; } = false;
-        public DateTime? TicketStartDateTime { get; set; }
-        public DateTime? TicketEndDateTime { get; set; }
+        [Required]
+        public string CurrencyType { get; set; }
+        public long? SeatID { get; set; }
+        [Required]
+        public long EventSessionId { get; set; }
     }
 }

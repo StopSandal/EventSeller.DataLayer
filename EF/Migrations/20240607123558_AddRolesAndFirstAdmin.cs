@@ -1,9 +1,5 @@
-﻿using DataLayer.Model.EF;
-using EventSeller.DataLayer.Entities;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.Extensions.DependencyInjection;
 
 #nullable disable
 

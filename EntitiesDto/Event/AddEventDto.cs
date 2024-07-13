@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace DataLayer.Models.Event
+namespace EventSeller.DataLayer.EntitiesDto.Event
 {
     public class AddEventDto
     {
@@ -17,5 +12,7 @@ namespace DataLayer.Models.Event
         public DateTime StartEventDateTime { get; set; }
         [Required]
         public DateTime EndEventDateTime { get; set; }
+        [Required]
+        public long EventTypeID { get; set; }
     }
 }

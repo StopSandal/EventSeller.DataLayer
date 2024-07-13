@@ -1,7 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using EventSeller.DataLayer.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
-namespace DataLayer.Model
+namespace EventSeller.DataLayer.Entities
 {
     public class Ticket
     {
@@ -10,12 +11,14 @@ namespace DataLayer.Model
         public string? Description { get; set; }
         [Column(TypeName = "decimal(18, 2)")]
         public decimal Price { get; set; }
+        public string CurrencyType { get; set; } = CurrencyTypes.USD.ToString();
         public bool isSold { get; set; } = false;
-        public DateTime? TicketStartDateTime { get; set; }
-        public DateTime? TicketEndDateTime { get; set; }
-        public long SeatID { get; set; }
-        public virtual TicketSeat Seat { get; set; }
-        public long EventID { get; set; }
-        public virtual Event Event { get; set; } 
+        public DateTime? BookedUntil { get; set; }
+        public long? SeatID { get; set; }
+        [JsonIgnore]
+        public virtual TicketSeat? Seat { get; set; }
+        public long EventSessionID { get; set; }
+        [JsonIgnore]
+        public virtual EventSession EventSession { get; set; }
     }
 }
