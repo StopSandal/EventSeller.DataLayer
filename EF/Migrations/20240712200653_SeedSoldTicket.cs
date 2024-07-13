@@ -15,8 +15,29 @@ namespace EventSeller.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            // predeterminate User ID
             var newUserId = "8be4102c-8c58-4079-b456-337ab9554d3c";
-            migrationBuilder.Sql($"UPDATE AspNetUsers SET Id = '{newUserId}' WHERE username = 'admin'");
+
+            migrationBuilder.Sql("ALTER TABLE AspNetUserRoles NOCHECK CONSTRAINT ALL");
+            migrationBuilder.Sql("ALTER TABLE AspNetUserClaims NOCHECK CONSTRAINT ALL");
+            migrationBuilder.Sql("ALTER TABLE AspNetUserLogins NOCHECK CONSTRAINT ALL");
+            migrationBuilder.Sql("ALTER TABLE AspNetUserTokens NOCHECK CONSTRAINT ALL");
+
+            migrationBuilder.Sql($@"
+            IF EXISTS (SELECT 1 FROM AspNetUsers WHERE UserName = 'admin' AND Id != '{newUserId}')
+            BEGIN
+                UPDATE AspNetUserRoles SET UserId = '{newUserId}' WHERE UserId = (SELECT Id FROM AspNetUsers WHERE UserName = 'admin')
+                UPDATE AspNetUserClaims SET UserId = '{newUserId}' WHERE UserId = (SELECT Id FROM AspNetUsers WHERE UserName = 'admin')
+                UPDATE AspNetUserLogins SET UserId = '{newUserId}' WHERE UserId = (SELECT Id FROM AspNetUsers WHERE UserName = 'admin')
+                UPDATE AspNetUserTokens SET UserId = '{newUserId}' WHERE UserId = (SELECT Id FROM AspNetUsers WHERE UserName = 'admin')
+                UPDATE AspNetUsers SET Id = '{newUserId}' WHERE UserName = 'admin'
+            END
+        ");
+
+            migrationBuilder.Sql("ALTER TABLE AspNetUserRoles CHECK CONSTRAINT ALL");
+            migrationBuilder.Sql("ALTER TABLE AspNetUserClaims CHECK CONSTRAINT ALL");
+            migrationBuilder.Sql("ALTER TABLE AspNetUserLogins CHECK CONSTRAINT ALL");
+            migrationBuilder.Sql("ALTER TABLE AspNetUserTokens CHECK CONSTRAINT ALL");
 
             migrationBuilder.Sql(@" UPDATE Tickets
                     SET isSold = 1
@@ -68,9 +89,6 @@ namespace EventSeller.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            var newId = Guid.NewGuid().ToString();
-            migrationBuilder.Sql($"UPDATE AspNetUsers SET Id = '{newId}' WHERE username = 'admin'");
-
             migrationBuilder.Sql(@" UPDATE Tickets
                     SET isSold = 0
                     WHERE (ID - 1) % 60 < 30 and ID<300;
