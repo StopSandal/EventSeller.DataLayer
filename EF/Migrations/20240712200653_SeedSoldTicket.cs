@@ -1,9 +1,4 @@
-﻿using EventSeller.DataLayer.Entities;
-using EventSeller.DataLayer.Enums;
-using Microsoft.EntityFrameworkCore.Migrations;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -80,7 +75,7 @@ namespace EventSeller.Migrations
 
             migrationBuilder.InsertData(
                 table: "TicketTransactions",
-                columns: new[] { "ID" ,"userId", "TicketID", "TransactionAmount", "UnreturnableFee", "CurrencyType", "Date", "TransactionId", "IsReturned" },
+                columns: new[] { "ID", "userId", "TicketID", "TransactionAmount", "UnreturnableFee", "CurrencyType", "Date", "TransactionId", "IsReturned" },
                 values: transaction
             );
 
